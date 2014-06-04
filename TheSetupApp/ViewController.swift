@@ -8,11 +8,23 @@
 
 import UIKit
 
+/**
+`ViewController` now simply opens “The Setup” homepage: http://usesthis.com.
+*/
 class ViewController: UIViewController {
-                            
+    /**
+    A UIWebView covering the whole screen and displaying the website.
+    */
+    @IBOutlet var webView: UIWebView
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let theSetupURLString = "http://usesthis.com"
+        let theSetupURL = NSURL(string: theSetupURLString)
+        let request = NSURLRequest(URL: theSetupURL)
+
+        webView.loadRequest(request)
     }
 
     override func didReceiveMemoryWarning() {
